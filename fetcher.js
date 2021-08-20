@@ -17,6 +17,7 @@ request(URL, (error, response, body) => {
   console.error('error:', error);
   console.log('statusCode:', response && response.statusCode);
 
+
   if (response.statusCode != 200) {
     console.log(`Received status code ${response.statusCode}. Error Occurred.`)
     return;
@@ -28,7 +29,7 @@ request(URL, (error, response, body) => {
       console.log(err);
     }
 
-    console.log(`Downloaded and saved ${body.length} bytes to ${PATH}`);
+    console.log(`Downloaded and saved ${response.headers['content-length']} bytes to ${PATH}`);
 
   });
 
