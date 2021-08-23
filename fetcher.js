@@ -6,11 +6,15 @@ const request = require('request');
 const fs = require('fs');
 
 
-if (PATH[0] !== '.' || PATH[1] != '/') {
-  console.log('Invalid local path');
+if (!fs.existsSync(PATH)) {
+  
+  console.log('File Path Not Found')
   return;
 
+
 };
+
+
 
 request(URL, (error, response, body) => {
 
